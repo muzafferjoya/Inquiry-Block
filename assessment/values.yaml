@@ -1,0 +1,22 @@
+namespace: knowlg-api
+
+env:
+  javaoptions: -Xmx600m
+
+replicaCount: 1
+repository: sunbirded.azurecr.io/assessment-service
+image_tag: release-5.4.0_RC1_7889b07_4
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 1
+    memory: 1024Mi
+network:
+  port: 9000
+  targetport: 9000
+strategy:
+  type: RollingUpdate
+  maxsurge: 25%
+  maxunavailable: 25%
